@@ -298,7 +298,7 @@ function reverseString() {
 </fieldset>
 
 <script>
-  // put your code here
+  
 </script>
 
 <div class="hint">
@@ -330,7 +330,21 @@ function reverseString() {
 </fieldset>
 
 <script>
-  // put your code here
+  var textToChange = $('#agreeable-text');
+  var foodie = $('#favorite-food-input').val()
+
+
+  var changeText = function(evt) {
+    evt.preventDefault();
+    console.log(foodie)
+    textToChange.text("I also LOVEEEE " + foodie);
+
+  }
+
+  var form = $('#agreeable-form')
+
+   form.on('submit', changeText)
+
 </script>
 
 <div class="hint">
