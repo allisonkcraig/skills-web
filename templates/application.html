@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>Application</title>
+{% endblock %}
+
+{% block content %}
+<div class="app-body">
+	<h2>Thank you for your application!</h2>
+	<p>Thank you, {{ first_name }} {{ last_name }}, <br>for applying to be a {{ job_title }}.<br>Your
+	minimum salary requirement is ${{ salary_req }} dollars.</p>
+</div>
+{% endblock %}

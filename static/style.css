@@ -1,0 +1,49 @@
+#header {
+	font-family: 'Alfa Slab One', cursive;
+	color: #ADBF7C;
+	text-shadow: 1px 1px #D2D8A9;
+	font-size: 150%;
+}
+
+body {
+	font-family: 'Josefin Sans', sans-serif;
+	margin: 0;
+}
+
+.app-body {
+	text-align: center;
+}
+
+.form-div {
+	width: 40%;
+	margin-left: 30%;
+}
+
+form {
+	font-size: 20px;
+}
+
+p {
+	font-size: 20px;
+}
+
+h2 {
+	font-size: 150%;
+	text-align: center;
+}
+
+input {
+	background-color: #D2D7AB;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+select {
+	background-color: #D2D7AB;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+#instructions-box {
+	border: 1px solid #D2D7AB;
+	padding: 1em;
+
+}
