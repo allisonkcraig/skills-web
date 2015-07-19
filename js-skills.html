@@ -119,7 +119,13 @@
 </fieldset>
 
 <script>
-  // code here for above-problem
+  var changeMessage = document.getElementById('message-to-change')
+  var changeButton = document.getElementById('change-hello-to-goodbye-button')
+
+  changeButton.onclick = function() {
+    changeMessage.textContent = "goodbye"
+
+  }
 </script>
 
 <div class="hint">
@@ -146,9 +152,20 @@
     <input type="submit" id="prevent-form-submission-button" value="Just an Alert, Please!">
   </form>
 </fieldset>
-
+    
 <script>
-  // code here for above problem
+    var userColor = document.getElementById('favorite-color-field');
+
+    var preventSubmit = function(evt) {
+      evt.preventDefault();
+      alert(userColor.value);
+    }
+
+    var submitButton = document.getElementById('prevent-form-submission-button');
+    submitButton.addEventListener('click',preventSubmit)
+
+
+
 </script>
 
 <div class="hint">
@@ -178,22 +195,18 @@
 </fieldset>
 
 <script>
-//  Here's a stub of a function you can use!
+function reverseString() {
+  var msg = "Porcupines are cute";
+  var newMsg = ""
+  for (var i =0; i < msg.length; i++) {
+    newMsg = newMsg + msg[i] 
+  }
 
-//  function reverseString() {
-//    var msg = "Porcupines are cute";
-//
-//    // do some stuff here to reverse that string into a new variable
-//    var newMsg = "This should be the reversed string";
-//
-//    alert(newMsg);
-//  }
+   alert(newMsg);
+ }
 
-// Here's a stub of event stuff you could use
-//
-
-//  var button = document.getElementById('reverse-string-button');
-//  button.addEventListener('click', reverseString);
+ var button = document.getElementById('reverse-string-button');
+ button.addEventListener('click', reverseString);
 </script>
 
 
@@ -205,6 +218,7 @@
 <p>You should use jQuery for these parts.</p>
 <p>We didn't include jQuery in this document, though&mdash;so your first task is to include it!</p>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 
 <h3>Finding the Button</h3>
@@ -217,7 +231,12 @@
 </fieldset>
 
 <script>
-  // code here for above problem
+  $('.tricky-to-find').on('click', function() {
+    for (var i = 0; i < $('.tricky-to-find').length; i++) {
+      alert('This is a pop up box. YAY!');
+    }
+  
+  })
 </script>
 
 <div class="hint">
@@ -244,7 +263,9 @@
 </fieldset>
 
 <script>
-  // put your code here
+  $('#kittenz-rule').on('click', function() {
+    $('#kittenz-rule').attr('src', 'http://cdn.sheknows.com/articles/2013/04/Photo_1.jpg');
+  })
 </script>
 
 <div class="hint">
