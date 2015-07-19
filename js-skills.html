@@ -298,7 +298,15 @@ function reverseString() {
 </fieldset>
 
 <script>
-  
+  var makePorcupineButton = $("#make-a-porcupine")
+  var porcupineImg = $("#cute-porcupine-image")
+
+  var fadePorcupine = function() {
+    porcupineImg.fadeIn(5000, function(){})
+  }
+
+  setTimeout(makePorcupineButton.on('click', fadePorcupine), 1000);
+
 </script>
 
 <div class="hint">
@@ -336,8 +344,8 @@ function reverseString() {
 
   var changeText = function(evt) {
     evt.preventDefault();
-    console.log(foodie)
-    textToChange.text("I also LOVEEEE " + foodie);
+    foodie = $('#favorite-food-input').val()
+    textToChange.text("I also LOVEEEE " + foodie + "!");
 
   }
 
@@ -390,7 +398,32 @@ function reverseString() {
 </fieldset>
 
 <script>
-  // put your code here
+  var guessingButton = $("#play-guessing-game")
+
+
+  var guessNumber = function() {
+    var randomNumberRaw = Math.random() * 100;
+    var randomNumber = Math.round(randomNumberRaw);
+    var guessedNumber = prompt('Guess Your Number')
+    while (true) {
+    if (guessedNumber > randomNumber) {
+      alert("Too High! Guess Again!")
+      var guessedNumber = prompt('Guess Your Number')
+    }
+    else if (guessedNumber < randomNumber) {
+      alert("Too Low! Guess Again!")
+      var guessedNumber = prompt('Guess Your Number')
+    }
+    else {
+      alert("Yay! You got it!!")
+      return false
+    }
+  }
+}
+
+  guessingButton.on('click', guessNumber)
+
+
 </script>
 
 <div class="hint">
