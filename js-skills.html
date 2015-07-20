@@ -199,7 +199,7 @@
       var msg = "Porcupines are cute";
       var newMsg = ""
       for (var i =0; i < msg.length; i++) {
-        newMsg = newMsg + msg[i] 
+        newMsg =  msg[i] +newMsg
       }
 
       alert(newMsg);
@@ -517,61 +517,125 @@
 
 
   })
-</script>
-
-
-
-
-<h3>Five Colored Primes</h3>
-<p>
-  When the button is pushed, five new boxes should appear in the bordered area.
-  (A prime number is an integer greater than 1 which cannot be divided evenly by any other
-  number other than itself and 1. For example, 11 is prime (you can only divide it by 1 and 11),
-  while 12 is not (you can divide it evenly by 2, 3, 4, and 6, along with 1 and 12).
-</p>
-<p>
-  Each box should contain the text of the next prime number. Each box should have a different
-  color, chosen from the list of colors in the Javascript. You can re-use our <code>prime-box</code>
-  class to make your numbers look like ours, if you want (or feel free to experiment with other
-  CSS).
-</p>
-<p>This should look like:</p>
-<div>
-  <div class="prime-box" style="background-color: orange">2</div>
-  <div class="prime-box" style="background-color: midnightblue">3</div>
-  <div class="prime-box" style="background-color: darkgoldenrod">5</div>
-  <div class="prime-box" style="background-color: green">7</div>
-  <div class="prime-box" style="background-color: purple">11</div>
-</div>
-<p>You must calculate the prime numbers; you cannot just type them in.</p>
-
-<fieldset>
-  <div id="prime-box-area"><!-- Your prime boxes should appear here! --></div>
-  <input type="button" id="make-prime-boxes" value="Button">
-</fieldset>
-
-<script>
-var PRIME_COLORS = ['orange', 'midnightblue', 'darkgoldenrod', 'green', 'purple'];
-
-  // put the rest of your code here
   </script>
 
 
 
 
-
-  <h3>CSS Stuff</h3>
+  <h3>Five Colored Primes</h3>
   <p>
-    This isn't so much of an exercise, but those of you interested in more intermediate/complex
-    CSS, take a look at the CSS we use on this page&mdash;it shows off some interesting pseudo-selectors
-    like <code>:before</code> and uses things like CSS numbering. Neat stuff.
+    When the button is pushed, five new boxes should appear in the bordered area.
+    (A prime number is an integer greater than 1 which cannot be divided evenly by any other
+    number other than itself and 1. For example, 11 is prime (you can only divide it by 1 and 11),
+    while 12 is not (you can divide it evenly by 2, 3, 4, and 6, along with 1 and 12).
   </p>
+  <p>
+    Each box should contain the text of the next prime number. Each box should have a different
+    color, chosen from the list of colors in the Javascript. You can re-use our <code>prime-box</code>
+    class to make your numbers look like ours, if you want (or feel free to experiment with other
+    CSS).
+  </p>
+  <p>This should look like:</p>
+  <div>
+    <div class="prime-box" style="background-color: orange">2</div>
+    <div class="prime-box" style="background-color: midnightblue">3</div>
+    <div class="prime-box" style="background-color: darkgoldenrod">5</div>
+    <div class="prime-box" style="background-color: green">7</div>
+    <div class="prime-box" style="background-color: purple">11</div>
+  </div>
+  <p>You must calculate the prime numbers; you cannot just type them in.</p>
 
-
-
-
+  <fieldset>
+    <div id="prime-box-area"><!-- Your prime boxes should appear here! --></div>
+    <input type="button" id="make-prime-boxes" value="Button">
+  </fieldset>
 
   <script>
+  var primeButton = $('#make-prime-boxes')
+  var PRIME_COLORS = ['#A0C8E4', '#302735', '#414770', '#844F6A', '#EF8287'];
+  var primeNumberArray = []
+
+// ****************************************************************************
+// Here is my feeble attempt ar calculating prime numbers. SO MANY NESTED LOOPZ.
+
+//   var make5PrimeNumbers = function() {
+//   console.log('hi!')
+//   counter = 0
+//   while (counter < 5) {
+//     for (var index = 2; index < 12; index++) {
+//       for (var i = 2; i < Math.sqrt(index) -1; i++) {
+//         if (index % i == 0) {
+//           if (primeNumberArray[counter -1] !== i || primeNumberArray[counter -1] !== "") {
+//               console.log("i: " + i)
+//               console.log("counter -1: " + primeNumberArray[counter -1])
+//               primeNumberArray.push(i);
+//               counter += 1;
+//               console.log("counter: " + counter)
+//         };
+//     };
+//   };
+// };
+//   }; 
+//   console.log(primeNumberArray);
+//   }
+
+// ****************************************************************************
+// Good programmers are lazy, so i found isPrime on the internet :)
+
+var isPrime = function(n) {
+   // If n is less than 2 or not an integer then by definition cannot be prime.
+   if (n < 2) {return false}
+     if (n != Math.round(n)) {return false}
+   // Now assume that n is prime, we will try to prove that it is not.
+    var isPrime = true;
+   // Now check every whole number from 2 to the square root of n. If any of these divides n exactly, n cannot be prime.
+   for (var i = 2; i <= Math.sqrt(n); i++) {
+    if (n % i == 0) {isPrime = false}
+  };
+   // Finally return whether n is prime or not.w
+   return isPrime;
+ }
+
+ var make5PrimeNumbers = function(){
+  var num = 2;
+  while(primeNumberArray.length < 5){
+    if (isPrime(num)){
+      primeNumberArray.push(num);
+      num += 1
+    } else {
+      num += 1;
+    };
+  }; makeCircles()
+ }
+
+ function makeCircles() {
+    for (var i = 0; i < 5; i ++) {
+      console.log(i);
+      $("#prime-box-area").append('<div class="prime-box" style="background-color:' + PRIME_COLORS[i]+'">'+primeNumberArray[i] +'</div>');
+    };
+ };
+
+
+ primeButton.on('click', make5PrimeNumbers );
+
+ </script>
+
+
+
+
+
+ <h3>CSS Stuff</h3>
+ <p>
+  This isn't so much of an exercise, but those of you interested in more intermediate/complex
+  CSS, take a look at the CSS we use on this page&mdash;it shows off some interesting pseudo-selectors
+  like <code>:before</code> and uses things like CSS numbering. Neat stuff.
+</p>
+
+
+
+
+
+<script>
   // Blink text FTW!
 
   var blinkies = document.getElementsByTagName("blink");
