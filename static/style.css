@@ -1,7 +1,7 @@
 #header {
 	font-family: 'Alfa Slab One', cursive;
-	color: #ADBF7C;
-	text-shadow: 1px 1px #D2D8A9;
+	color: #7D8935;
+	text-shadow: 1px 1px #C9D787;
 	font-size: 150%;
 }
 
@@ -33,12 +33,12 @@ h2 {
 }
 
 input {
-	background-color: #D2D7AB;
+	background-color: #FFC0A9;
 	font-family: 'Josefin Sans', sans-serif;
 }
 
 select {
-	background-color: #D2D7AB;
+	background-color: #FFC0A9;
 	font-family: 'Josefin Sans', sans-serif;
 }
 
